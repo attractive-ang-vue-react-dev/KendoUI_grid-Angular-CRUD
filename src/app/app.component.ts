@@ -38,7 +38,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private dialogService: DialogService) { }
 
     public ngOnInit(): void {
-        this.view = this.service.products();
+        this.view = this.service.Users();
 
         this.docClickSubscription = this.renderer.listen('document', 'click', this.onDocumentClick.bind(this));
     }

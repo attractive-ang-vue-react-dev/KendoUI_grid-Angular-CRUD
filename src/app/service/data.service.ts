@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { products } from './data';
+import { users } from './data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  private data: any[] = products;
-  private counter: number = products.length;
+  private data: any[] = users;
+  private counter: number = users.length;
 
-  public products(): any[] {
+  public Users(): any[] {
       return this.data;
   }
 
@@ -18,15 +18,15 @@ export class DataService {
       this.data.splice(index, 1);
   }
 
-  public save(product: any, isNew: boolean): void {
+  public save(user: any, isNew: boolean): void {
     if (isNew) {
-          product.UserID = this.counter++;
-          this.data.splice(0, 0, product);
+          user.UserID = this.counter++;
+          this.data.splice(0, 0, user);
       } else {
-        const changedData = this.data.find(({ UserID }) => UserID === product.UserID)
+        const changedData = this.data.find(({ UserID }) => UserID === user.UserID)
           Object.assign(
               changedData,
-              product
+              user
           );
       }
   }

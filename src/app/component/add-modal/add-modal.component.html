@@ -24,12 +24,12 @@
             <div class="form-group">
               <label>User Phone : </label>
               <input type="text" class="form-control" formControlName="UserPhone" placeholder="Enter User phone" (keypress)="keyPress($event)">
-              <div *ngIf="createUserForm.controls['UserPhone'].invalid && (createUserForm.controls['UserPhone'].dirty || createUserForm.controls['UserEmail'].touched )">
+              <div *ngIf="createUserForm.controls['UserPhone'].invalid && (createUserForm.controls['UserPhone'].dirty || createUserForm.controls['UserPhone'].touched )">
                 <span class="warning" *ngIf="createUserForm.controls['UserPhone'].errors?.required">
                     *Phone is required </span>
                     <span class="warning" *ngIf=" createUserForm.controls['UserPhone'].errors?.pattern">
                         *Please, Enter 11 digit Mobile Number. </span>
-            </div>
+              </div>
             </div>
           </form>
     </div>

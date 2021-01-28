@@ -1,4 +1,4 @@
-export const products = [{
+export const users = [{
     'UserID' : 1,
     'UserName' : "Edwards Daugherty",
     'UserEmail' : "edwardsdaugherty@protodyne.com",
