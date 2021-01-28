@@ -1,0 +1,42 @@
+<div>
+    <div class="modal-header">
+      <h4 class="modal-title">Add New User</h4>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="createUserForm">
+            <div class="form-group">
+              <label>User Name : </label>
+              <input type="text" class="form-control" formControlName="UserName" placeholder="Enter User name">
+              <span class="warning" *ngIf="createUserForm.controls['UserName'].invalid && (createUserForm.controls['UserName'].dirty || createUserForm.controls['UserName'].touched )">
+                *User name is required </span>
+            </div>
+            <div class="form-group">
+                <label>User email : </label>
+                <input type="text" class="form-control" formControlName="UserEmail" placeholder="Enter User email">
+                <div *ngIf="createUserForm.controls['UserEmail'].invalid && (createUserForm.controls['UserEmail'].dirty || createUserForm.controls['UserEmail'].touched )">
+                    <span class="warning" *ngIf="createUserForm.controls['UserEmail'].errors?.required">
+                        *Email is required </span>
+                        <span class="warning" *ngIf=" createUserForm.controls['UserEmail'].errors?.pattern">
+                            *Please enter a valid email </span>
+                </div>
+                
+            </div>
+            <div class="form-group">
+              <label>User Phone : </label>
+              <input type="text" class="form-control" formControlName="UserPhone" placeholder="Enter User phone" (keypress)="keyPress($event)">
+              <div *ngIf="createUserForm.controls['UserPhone'].invalid && (createUserForm.controls['UserPhone'].dirty || createUserForm.controls['UserEmail'].touched )">
+                <span class="warning" *ngIf="createUserForm.controls['UserPhone'].errors?.required">
+                    *Phone is required </span>
+                    <span class="warning" *ngIf=" createUserForm.controls['UserPhone'].errors?.pattern">
+                        *Please, Enter 10 digit Mobile Number. </span>
+            </div>
+            </div>
+          </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button"
+        class="btn btn-outline-dark"
+        (click)="modalService.close()">Cancel</button>
+        <button [disabled]="!createUserForm.valid" class="btn btn-primary" (click)="createUser()">Add User</button>
+    </div>
+  </div>
