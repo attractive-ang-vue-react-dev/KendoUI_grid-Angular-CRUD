@@ -11,7 +11,7 @@ const createFormGroup = (dataItem) =>
     UserID: new FormControl(dataItem.UserID),
     UserName: new FormControl(dataItem.UserName, Validators.required),
     UserEmail: new FormControl(dataItem.UserEmail, [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
-    UserPhone: new FormControl(dataItem.UserPhone, Validators.required),
+    UserPhone: new FormControl(dataItem.UserPhone, [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{11}$")]),
   });
 
   const matches = (el, selector) => (el.matches || el.msMatchesSelector).call(el, selector);
