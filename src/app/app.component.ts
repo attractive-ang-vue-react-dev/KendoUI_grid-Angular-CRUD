@@ -21,7 +21,7 @@ const createFormGroup = (dataItem) =>
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
   title = 'test1';
   @ViewChild(GridComponent)
     private grid: GridComponent;
@@ -31,7 +31,6 @@ export class AppComponent implements OnInit, OnDestroy {
     public formGroup: FormGroup;
 
     private editedRowIndex: number;
-    private docClickSubscription: any;
     private isNew: boolean;
 
   constructor(private service: DataService, private renderer: Renderer2,
@@ -39,12 +38,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
     public ngOnInit(): void {
         this.view = this.service.Users();
-
-        this.docClickSubscription = this.renderer.listen('document', 'click', this.onDocumentClick.bind(this));
-    }
-
-    public ngOnDestroy(): void {
-        this.docClickSubscription();
     }
 
     public addHandler(): void {
@@ -62,14 +55,9 @@ export class AppComponent implements OnInit, OnDestroy {
             return;
         }
 
-        if (this.isNew) {
-            rowIndex += 1;
-        }
-
         this.saveCurrent();
 
       this.formGroup = createFormGroup(dataItem);
-      console.log(this.formGroup.valid)
         this.editedRowIndex = rowIndex;
 
         this.grid.editRow(rowIndex, this.formGroup);
@@ -86,7 +74,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
     private closeEditor(): void {
         this.grid.closeRow(this.editedRowIndex);
-
         this.isNew = false;
         this.editedRowIndex = undefined;
         this.formGroup = undefined;
