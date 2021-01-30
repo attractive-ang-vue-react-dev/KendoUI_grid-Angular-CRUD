@@ -1,6 +1,12 @@
-# Test1
+# Test - Angular10 + Kendo Grid CRUD example
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.2.
+
+It was developed by using Angular and Kendo UI editable table grid.
+
+You can Add new Users, Edit, Delete the existing user with some configration.
+
+App was deployed on Netlify. You can check the Demo on this Link:https://xenodochial-hamilton-2574d2.netlify.app
 
 ## Development server
 

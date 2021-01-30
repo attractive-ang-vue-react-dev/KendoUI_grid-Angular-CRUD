@@ -34,7 +34,7 @@ export class AddModalComponent implements OnInit {
     this.createUserForm = this.formBuilder.group({
       UserID: '',
       UserName: ['', Validators.required],
-      UserEmail: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      UserEmail: ['', [Validators.required, Validators.email, Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
       UserPhone: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{11}$")]]
     })
   }

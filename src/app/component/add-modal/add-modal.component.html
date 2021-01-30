@@ -12,7 +12,7 @@
             </div>
             <div class="form-group">
                 <label>User email : </label>
-                <input type="text" class="form-control" formControlName="UserEmail" placeholder="Enter User email">
+                <input type="email" class="form-control" formControlName="UserEmail" placeholder="Enter User email">
                 <div *ngIf="createUserForm.controls['UserEmail'].invalid && (createUserForm.controls['UserEmail'].dirty || createUserForm.controls['UserEmail'].touched )">
                     <span class="warning" *ngIf="createUserForm.controls['UserEmail'].errors?.required">
                         *Email is required </span>
