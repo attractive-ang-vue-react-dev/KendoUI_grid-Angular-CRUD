@@ -6,7 +6,7 @@ It was developed by using Angular and Kendo UI editable table grid.
 
 You can Add new Users, Edit, Delete the existing user with some configration.
 
-App was deployed on Netlify. You can check the Demo on this Link:https://xenodochial-hamilton-2574d2.netlify.app
+App was deployed on Netlify. You can check the Demo on this Link:https://angular-kendoui-crud.netlify.app
 
 ## Development server
 
